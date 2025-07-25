@@ -6,7 +6,7 @@ from typing import List, Optional, Literal
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Resume Matcher"
+    PROJECT_NAME: str = "Jottit AI"
     FRONTEND_PATH: str = os.path.join(os.path.dirname(__file__), "frontend", "assets")
     ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
     SYNC_DATABASE_URL: Optional[str]
@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     SESSION_SECRET_KEY: Optional[str]
     DB_ECHO: bool = False
     PYTHONDONTWRITEBYTECODE: int = 1
+    OPENAI_API_KEY: Optional[str] = None
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, ".env"),

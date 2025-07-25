@@ -1,5 +1,5 @@
-import Hero from '@/components/home/hero';
+import JournalApp from '@/components/journal/journal-app';
 
 export default function Home() {
-	return <Hero />;
+	return <JournalApp />;
 }
