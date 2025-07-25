@@ -1,7 +1,7 @@
 {
-    "name": "resume-matcher",
+    "name": "jottit-ai",
     "version": "0.0.1",
-    "description": "Veridis Quo.",
+    "description": "AI-driven journaling app with voice-to-text transcription and intelligent insights.",
     "private": true,
     "scripts": {
         "install:frontend": "cd apps/frontend && npm install",
