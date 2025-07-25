@@ -145,7 +145,7 @@ export const useFileUpload = (
     return `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).substring(2, 9)}`
   }, [])
 
-  const _uploadFileInternal = async (fileToUpload: FileWithPreview) => {
+  const _uploadFileInternal = useCallback(async (fileToUpload: FileWithPreview) => {
     // Ensure fileToUpload.file is a File instance for upload
     if (!(fileToUpload.file instanceof File)) {
       const errorMsg = `Cannot upload "${(fileToUpload.file as FileMetadata).name}"; it's not a valid file object for direct upload.`;
@@ -278,7 +278,7 @@ export const useFileUpload = (
         return { ...prev, files: updatedFiles, errors: newErrors, isUploadingGlobal: false }
       })
     }
-  }
+  }, [uploadUrl, setState, onUploadError, onUploadSuccess])
 
   const addFilesAndUpload = useCallback(
     (newFilesInput: FileList | File[]) => {
@@ -398,7 +398,7 @@ export const useFileUpload = (
       multiple, maxFiles, uploadUrl,
       validateFile, generateUniqueId, createPreview, // Other useCallback deps
       onFilesChange, onFilesAdded, // Callbacks
-      // _uploadFileInternal is not directly a dep but its logic is tied to uploadUrl etc.
+      _uploadFileInternal, // Added missing dependency
       // setState itself is stable.
     ]
   )

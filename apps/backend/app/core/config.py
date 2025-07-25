@@ -7,6 +7,7 @@ from typing import List, Optional, Literal
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Resume Matcher"
+    ENV: str = "production"
     FRONTEND_PATH: str = os.path.join(os.path.dirname(__file__), "frontend", "assets")
     ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
     SYNC_DATABASE_URL: Optional[str]
