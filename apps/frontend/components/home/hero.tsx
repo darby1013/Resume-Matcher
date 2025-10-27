@@ -15,7 +15,7 @@ export default function Hero() {
 					Resume Matcher
 				</h1>
 			</div>
-			<p className="mb-12 --font-space-grotesk text-center text-lg bg-gradient-to-br from-pink-400 via-blue-400 to-violet-600 bg-clip-text text-transparent md:text-xl">
+			<p className="mb-12 font-space-grotesk text-center text-lg bg-gradient-to-br from-pink-400 via-blue-400 to-violet-600 bg-clip-text text-transparent md:text-xl">
 				Increase your interview chances with a perfectly tailored resume.
 			</p>
 			<Link
