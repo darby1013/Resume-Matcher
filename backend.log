@@ -1,0 +1,15 @@
+
+> resume-matcher@0.0.1 dev:backend
+> cd apps/backend && uv run uvicorn app.main:app --reload --port 8000 --timeout-keep-alive 300 --timeout-graceful-shutdown 300
+
+INFO:     Will watch for changes in these directories: ['/workspace/apps/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [9271] using StatReload
+INFO:     Started server process [9273]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9273]
+INFO:     Stopping reloader process [9271]
