@@ -23,6 +23,25 @@ from .models import Base
 async def lifespan(app: FastAPI):
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    
+    # Create demo user if it doesn't exist
+    from sqlalchemy.ext.asyncio import AsyncSession
+    from .models import User
+    from sqlalchemy import select
+    
+    async with AsyncSession(async_engine) as session:
+        result = await session.execute(select(User).where(User.id == 1))
+        demo_user = result.scalar_one_or_none()
+        
+        if not demo_user:
+            demo_user = User(
+                id=1,
+                email="demo@jottit.ai",
+                name="Demo User"
+            )
+            session.add(demo_user)
+            await session.commit()
+    
     yield
     await async_engine.dispose()
 
